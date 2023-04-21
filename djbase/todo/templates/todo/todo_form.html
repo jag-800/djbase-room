@@ -1,0 +1,16 @@
+{% extends 'todo/base.html' %}
+
+{% block header %}
+<h1>新しい曲を投稿</h1>
+{% endblock header %}
+
+{% block content %}
+<form action="" method="POST">{% csrf_token %}
+  <table class="table" style="color: white;">
+    {{ form.as_table }}
+  </table>
+  <a class="btn btn-light" href="{% url 'list' %}" role="button">戻る</a>
+  <input class="btn btn-primary" type="submit" value="送信">
+</form>
+
+{% endblock content %}

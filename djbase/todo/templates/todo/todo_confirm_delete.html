@@ -1,0 +1,29 @@
+{% extends 'todo/base.html' %}
+
+{% block header %}
+<h1>投稿の削除</h1>
+<p>「{{task.title}}」を削除しますか？</p>
+{% endblock header %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h2>{{task.title}}</h2>
+        <p class="text-muted">{{ task.artist}}</p>
+        <p class="text-muted">「{{task.description}}」</p>
+        <p>{{ task.hiki_type}}</p>
+        {% if task.share_url %}
+          <div class="ratio ratio-16x9">
+            <iframe src={{ task.share_url|add:"?rel=0" }}></iframe>
+          </div>
+        {% else %}
+          <p>動画なし</p>
+        {% endif %}
+        <p><small class="text-muted">{{task.datetime}}</small></p>
+    </div>
+</div>
+<form action="" method="POST">{% csrf_token %}
+    <a class="btn btn-light mt-2" href="{% url 'list' %}" role="button">戻る</a>
+    <input class="btn btn-danger mt-2" type="submit" value="削除">
+</form>
+{% endblock content %}

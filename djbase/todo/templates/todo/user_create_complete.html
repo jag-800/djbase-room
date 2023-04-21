@@ -1,0 +1,13 @@
+{% extends "todo/base.html" %}
+{% block header %}
+  <h1><b>ゆんじのベース部屋</b></h1>
+{% endblock header %}
+{% block content %}
+  <div class="card">
+    <p>
+      本登録が完了しました。<br>
+      登録されたメールアドレスとパスワードでログインしてください。<br>
+      <a class="btn btn-primary btn-lg" href="{% url 'login' %}">ログイン</a>
+  </p>
+  </div>
+{% endblock %}
